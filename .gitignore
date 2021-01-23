@@ -1,0 +1,8 @@
+.idea/
+quora-api/target/
+quora-db/target/
+quora-service/target/
+quora-db/quora-db.iml
+quora-api/quora-api.iml
+quora-service/quora-service.iml
+
