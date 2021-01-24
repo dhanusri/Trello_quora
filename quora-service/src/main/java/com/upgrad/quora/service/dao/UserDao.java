@@ -71,7 +71,7 @@ public class UserDao {
     }
 
     /**
-     * to update user entity
+     * The method to update user entity
      *
      * @param updatedUserEntity : update user entity after creating user auth token
      * @Author: M.DHANUSRI

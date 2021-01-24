@@ -27,7 +27,7 @@ public class QuestionBusinessService {
 
     /**
      * Used to create a question in the Quora Application which will be shown to all the users.
-     * <p>
+     *
      * If the access token provided by the user does not exist in the database throw "AuthorizationFailedException" with the message code - 'ATHR-001' and message - 'User has not signed in'.
      * If the user has signed out, throw 'AuthorizationFailedException' with the message code- 'ATHR-002' and message -'User is signed out.Sign in first to post a question'.
      *
@@ -53,7 +53,7 @@ public class QuestionBusinessService {
 
     /**
      * Used to fetch all the questions that have been posted in the application by any user.
-     * <p>
+     *
      * If the access token provided by the user does not exist in the database throw 'AuthorizationFailedException' with the message code - 'ATHR-001' and message - 'User has not signed in'.
      * If the user has signed out, throw 'AuthorizationFailedException' with the message code-'ATHR-002' and message-'User is signed out.Sign in first to get all questions'.
      *

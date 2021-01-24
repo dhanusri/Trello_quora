@@ -12,11 +12,7 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 
-/**
- * this is UserAuthTokenEntity '
- * used for user authentication
- */
-
+// this is UserAuthTokenEntity used for user authentication
 @SuppressWarnings("All")
 @Entity
 @Table(name = "user_auth")
@@ -24,7 +20,6 @@ import java.time.ZonedDateTime;
         @NamedQuery(name = "userAuthTokenByAccessToken" , query = "select ut from UserAuthTokenEntity ut where ut.accessToken = :accessToken ")
 })
 public class UserAuthTokenEntity implements Serializable {
-
 
     @Id
     @Column(name = "id")
@@ -53,7 +48,6 @@ public class UserAuthTokenEntity implements Serializable {
 
     @Column(name = "logout_at")
     private ZonedDateTime logoutAt;
-
 
     public Integer getId() {
         return id;

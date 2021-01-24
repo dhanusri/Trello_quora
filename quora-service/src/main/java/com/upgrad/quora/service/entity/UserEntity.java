@@ -8,17 +8,12 @@ import javax.validation.constraints.Size;
 @SuppressWarnings("all")
 @Entity
 @Table(name = "users")
-/**
- * this is UserEntity class used for authorised user validation
-
- * */
-@NamedQueries(
-        {
-                @NamedQuery(name = "userByUserName", query = "select u from UserEntity u where u.userName = :userName"),
-                @NamedQuery(name = "userByEmail", query = "select u from UserEntity u where u.email = :email"),
-                @NamedQuery(name = "userByUserUuid", query = "select u from UserEntity u where u.uuid = :uuid")
-        }
-)
+// this is UserEntity class used for authorised user validation
+@NamedQueries({
+        @NamedQuery(name = "userByUserName", query = "select u from UserEntity u where u.userName = :userName"),
+        @NamedQuery(name = "userByEmail", query = "select u from UserEntity u where u.email = :email"),
+        @NamedQuery(name = "userByUserUuid", query = "select u from UserEntity u where u.uuid = :uuid")
+})
 public class UserEntity {
     @Id
     @Column(name = "id")
@@ -181,7 +176,5 @@ public class UserEntity {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-
 
 }
