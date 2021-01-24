@@ -31,7 +31,6 @@ public class QuestionController {
     /**
      * Method for signed in user to create a new question..
      *
-     * @Author:Vipin P K
      */
     @RequestMapping(method = RequestMethod.POST, path = "/question/create", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<QuestionResponse> createQuestion(final QuestionRequest questionRequest, @RequestHeader("authorization") final String authorization) throws AuthorizationFailedException {
@@ -51,7 +50,6 @@ public class QuestionController {
     /**
      * Method for signed in user to view all questions posted in quora..
      *
-     * @Author:Vipin P K
      */
     @RequestMapping(method = RequestMethod.GET, path = "/question/all", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<List<QuestionDetailsResponse>> getAllQuestions(@RequestHeader("authorization") final String authorization) throws AuthorizationFailedException {
@@ -83,7 +81,6 @@ public class QuestionController {
      * @return Id and status of the question edited.
      * @throws AuthorizationFailedException In case the access token is invalid.
      * @throws InvalidQuestionException     if question with questionId doesn't exist.
-     * @Author:Divyank
      */
     @RequestMapping(method = RequestMethod.PUT, path = "/question/edit/{questionId}", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<QuestionEditResponse> editQuestionContent(@RequestHeader("authorization") final String authorization,
@@ -105,7 +102,6 @@ public class QuestionController {
      * @return Id and status of the question deleted.
      * @throws AuthorizationFailedException In case the access token is invalid.
      * @throws InvalidQuestionException     if question with questionId doesn't exist.
-     * @Author:Divyank
      */
     @RequestMapping(method = RequestMethod.DELETE, path = "/question/delete/{questionId}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<QuestionDeleteResponse> deleteQuestion(@RequestHeader("authorization") final String authorization,
@@ -125,7 +121,6 @@ public class QuestionController {
      * @return it returns list of QuestionDetailsResponse
      * @throws AuthorizationFailedException In case the access token is invalid.
      * @throws UserNotFoundException in case user don't have any question
-     * @Author:Divyank
      */
     @RequestMapping(
             method = RequestMethod.GET,
