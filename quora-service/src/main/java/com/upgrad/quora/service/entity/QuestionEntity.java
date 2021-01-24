@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import java.time.ZonedDateTime;
 
 /**
- * this is Question entitu=y class
+ * this is Question entity class
  * @Author M.DHANUSRI
  */
 
