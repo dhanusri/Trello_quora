@@ -1,14 +1,18 @@
 package com.upgrad.quora.service.business;
 
-import com.upgrad.quora.service.DAO.AnswerDao;
+import com.upgrad.quora.service.dao.AnswerDao;
+import com.upgrad.quora.service.dao.QuestionDao;
+import com.upgrad.quora.service.dao.UserDao;
 import com.upgrad.quora.service.entity.AnswerEntity;
+import com.upgrad.quora.service.entity.QuestionEntity;
+import com.upgrad.quora.service.entity.UserAuthTokenEntity;
 import com.upgrad.quora.service.exception.AnswerNotFoundException;
 import com.upgrad.quora.service.exception.AuthorizationFailedException;
 import com.upgrad.quora.service.exception.InvalidQuestionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -23,6 +27,8 @@ public class AnswerBusinessService {
 
     @Autowired
     private AnswerDao answerDao;
+
+    // Method will help to post an answer to any question after user validations.
     @Transactional(propagation = Propagation.REQUIRED)
     public AnswerEntity createAnswer(final AnswerEntity answerEntity, final String questionId, final String authorization) throws AuthorizationFailedException, InvalidQuestionException {
         UserAuthTokenEntity userAuthEntity = userDao.getUserAuthToken(authorization);
@@ -50,6 +56,8 @@ public class AnswerBusinessService {
 
         return answerDao.createAnswer(answerEntity);
     }
+
+    // edits the answer which already exist in the database.
     @Transactional(propagation = Propagation.REQUIRED)
     public AnswerEntity editAnswer(
             final String authorization, final String answerId, final String newAnswer)
@@ -73,6 +81,8 @@ public class AnswerBusinessService {
         answerDao.updateAnswer(answerEntity);
         return answerEntity;
     }
+
+    //deletes the answer which already exist in the database.
     @Transactional(propagation = Propagation.REQUIRED)
     public void deleteAnswer(final String answerId, final String authorization) throws AuthorizationFailedException, AnswerNotFoundException {
         UserAuthTokenEntity userAuthEntity = userDao.getUserAuthToken(authorization);
@@ -101,6 +111,8 @@ public class AnswerBusinessService {
         //Delete the answer
         answerDao.performDeleteAnswer(answerId);
     }
+
+    // get all the answers for a question
     public List<AnswerEntity> getAllAnswersToQuestion(
             final String questionId, final String accessToken)
             throws AuthorizationFailedException, InvalidQuestionException {
